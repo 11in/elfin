@@ -38,5 +38,8 @@
     "webpack": "^4.31.0",
     "webpack-manifest-plugin": "^2.0.4",
     "whatwg-fetch": "^3.0.0"
+  },
+  "dependencies": {
+    "rimraf": "^3.0.2"
   }
 }
