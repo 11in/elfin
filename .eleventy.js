@@ -11,6 +11,11 @@ module.exports = function (conf) {
         "site/assets": "/"
     });
 
+    /**
+     * This is necessary so that we rebuild when assets are rebuilt
+     */
+    conf.setUseGitIgnore(false);
+
     return {
         dir: {
             input: "site",

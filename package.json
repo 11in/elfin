@@ -6,7 +6,11 @@
   "scripts": {
     "clean": "rimraf ./dist ./site/assets",
     "assets:build": "node tasks/build.js",
-    "assets:watch": "node tasks/watch.js"
+    "assets:watch": "node tasks/watch.js",
+    "site:build": "npx @11ty/eleventy",
+    "site:serve": "npx @11ty/eleventy --serve",
+    "build": "run-s clean assets:build site:build",
+    "dev": "run-p assets:watch site:serve"
   },
   "author": "Ben Martinez-Bateman <ben@alwaysblank.org>",
   "license": "ISC",

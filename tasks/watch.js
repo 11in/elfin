@@ -7,6 +7,6 @@ const compile = require('./compile');
 
   console.log('Watching source files for changes...');
   chokidar
-      .watch('app/**/*', {ignoreInitial: true})
+      .watch('assets/**/*', {ignoreInitial: true})
       .on('all', debounce(compile, 100));
 })();
