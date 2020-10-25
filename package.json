@@ -4,6 +4,7 @@
   "description": "11ty starter package.",
   "main": "index.js",
   "scripts": {
+    "clean": "rimraf ./dist ./site/assets",
     "assets:build": "node tasks/build.js",
     "assets:watch": "node tasks/watch.js"
   },
