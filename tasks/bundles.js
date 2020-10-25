@@ -1,10 +1,17 @@
 const md5 = require('md5');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const webpack = require('webpack');
 const ManifestPlugin = require('webpack-manifest-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const config = require('./config.json');
 const {addAsset, getManifest} = require('./utils/assets');
+
+const env = process.env.NODE_ENV || "development";
+const isProd = env === "production";
+const filenamePattern = name => (isProd ? `${name}.[hash]` : name);
+const chunkFileNamePattern = isProd ? "[id].[hash]" : "[id]";
 
 const configurePlugins = () => {
   const plugins = [
@@ -26,6 +33,12 @@ const configurePlugins = () => {
           return getManifest();
         }, seed);
       },
+    }),
+
+    new MiniCssExtractPlugin({
+      filename: `${filenamePattern("styles")}.css`,
+      chunkFilename: `${chunkFileNamePattern}.css`,
+      ignoreOrder: false
     }),
   ];
 
@@ -55,6 +68,7 @@ const configureBabelLoader = (browserlist) => {
             },
           }],
         ],
+        sourceType: 'unambiguous',
         plugins: ['@babel/plugin-syntax-dynamic-import'],
       },
     },
@@ -72,13 +86,23 @@ const baseConfig = {
       terserOptions: {
         safari10: true,
       },
-    })],
+    }), new OptimizeCSSAssetsPlugin({})],
   },
+};
+
+const stylesConfig = {
+  test: /\.css$/,
+  use: [
+    MiniCssExtractPlugin.loader,
+    { loader: 'css-loader', options: { importLoaders: 1 } },
+    { loader: 'postcss-loader' },
+  ]
 };
 
 const modernConfig = Object.assign({}, baseConfig, {
   entry: {
     'main': './assets/scripts/main.js',
+    'styles': './assets/styles/main.css',
   },
   output: {
     path: path.resolve(__dirname, '..', config.publicDir),
@@ -97,6 +121,7 @@ const modernConfig = Object.assign({}, baseConfig, {
         'last 2 Firefox versions', 'not Firefox < 54',
         'last 2 Edge versions', 'not Edge < 15',
       ]),
+      stylesConfig,
     ],
   },
 });
