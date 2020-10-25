@@ -1,0 +1,14 @@
+{
+  "name": "vity",
+  "version": "0.0.0",
+  "description": "11ty starter package.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ben Martinez-Bateman <ben@alwaysblank.org>",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.1"
+  }
+}
