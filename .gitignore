@@ -1,0 +1,5 @@
+# Final completed build location
+/dist
+
+# Webpack asset destination
+/site/assets
