@@ -29,20 +29,19 @@
     "lodash": "^4.17.15",
     "md5": "^2.2.1",
     "mini-css-extract-plugin": "^1.2.0",
+    "npm-run-all": "^4.1.5",
     "nunjucks": "^3.2.0",
     "optimize-css-assets-webpack-plugin": "^5.0.4",
     "postcss": "^8.1.4",
     "postcss-import": "^13.0.0",
     "postcss-loader": "^4.0.4",
     "regenerator-runtime": "^0.13.2",
+    "rimraf": "^3.0.2",
     "serve-static": "^1.14.0",
     "tailwindcss": "^1.9.6",
     "terser-webpack-plugin": "^1.2.3",
     "webpack": "^4.31.0",
     "webpack-manifest-plugin": "^2.0.4",
     "whatwg-fetch": "^3.0.0"
-  },
-  "dependencies": {
-    "rimraf": "^3.0.2"
   }
 }
