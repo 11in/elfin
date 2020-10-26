@@ -102,7 +102,6 @@ const stylesConfig = {
 const modernConfig = Object.assign({}, baseConfig, {
   entry: {
     'main': './assets/scripts/main.js',
-    'styles': './assets/styles/main.css',
   },
   output: {
     path: path.resolve(__dirname, '..', config.publicDir),
@@ -143,25 +142,26 @@ const legacyConfig = Object.assign({}, baseConfig, {
         'last 2 versions',
         'Firefox ESR',
       ]),
+      stylesConfig,
     ],
   },
 });
 
-const createCompiler = (config) => {
+const createCompiler = (config, name) => {
   const compiler = webpack(config);
   return () => {
     return new Promise((resolve, reject) => {
       compiler.run((err, stats) => {
         if (err) return reject(err);
-        console.log(stats.toString({colors: true}) + '\n');
+        console.log(`Finished ${name}!`);
         resolve();
       });
     });
   };
 };
 
-const compileModernBundle = createCompiler(modernConfig);
-const compileLegacyBundle = createCompiler(legacyConfig);
+const compileModernBundle = createCompiler(modernConfig, 'modern');
+const compileLegacyBundle = createCompiler(legacyConfig, 'legacy');
 
 module.exports = async () => {
   await compileModernBundle();

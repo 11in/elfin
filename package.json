@@ -1,16 +1,14 @@
 {
-  "name": "alwaysblank/vity",
+  "name": "vity",
   "version": "1.0.0-alpha",
   "description": "11ty starter package.",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf ./dist ./site/assets",
-    "assets:build": "node tasks/build.js",
-    "assets:watch": "node tasks/watch.js",
-    "site:build": "npx @11ty/eleventy",
-    "site:serve": "npx @11ty/eleventy --serve",
-    "build": "run-s clean assets:build site:build",
-    "dev": "run-p assets:watch site:serve"
+    "build": "run-s clean task:build",
+    "watch": "run-s clean task:watch",
+    "task:build": "node tasks/build.js",
+    "task:watch": "node tasks/watch.js"
   },
   "author": "Ben Martinez-Bateman <ben@alwaysblank.org>",
   "license": "ISC",

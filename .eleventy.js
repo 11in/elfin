@@ -16,6 +16,8 @@ module.exports = function (conf) {
      */
     conf.setUseGitIgnore(false);
 
+    conf.setQuietMode(true);
+
     return {
         dir: {
             input: "site",
