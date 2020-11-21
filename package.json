@@ -1,6 +1,6 @@
 {
   "name": "vity",
-  "version": "1.0.0-alpha",
+  "version": "1.1.0-alpha",
   "description": "11ty starter package.",
   "main": "index.js",
   "scripts": {

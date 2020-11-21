@@ -8,8 +8,14 @@ const compile = require('./compile');
 
 (async () => {
   await compile();
-  await ssg.init();
-  await ssg.write();
+  await ssg
+      .init()
+      .then(function() {
+        ssg.watch().then(function () {
+          ssg.serve(8080);
+        })
+      })
+
 
   console.log('Watching source files for changes...');
   chokidar
@@ -18,7 +24,5 @@ const compile = require('./compile');
     })
     .on('all', debounce(async () => {
       await compile();
-      await ssg.init();
-      await ssg.write();
     }, 100));
 })();
