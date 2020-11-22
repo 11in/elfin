@@ -1,16 +1,10 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const SriPlugin = require('webpack-subresource-integrity');
-const sriPluginInstance = new SriPlugin({
-    hashFuncNames: ['sha256', 'sha384'],
-    enabled: process.env.NODE_ENV === 'production',
-})
 const AssetsPlugin = require('assets-webpack-plugin');
 const assetsPluginInstance = new AssetsPlugin({
     filename: 'assets.json',
     fullPath: false,
     path: path.join(__dirname, 'content', '_data'),
-    integrity: true,
 });
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -67,7 +61,6 @@ module.exports = [{
             filename: isProd ? '[name].[contenthash].css' : '[name].css'
         }),
         assetsPluginInstance,
-        sriPluginInstance,
     ],
     module: {
         rules: [
@@ -109,7 +102,6 @@ module.exports = [{
     },
     plugins: [
         assetsPluginInstance,
-        sriPluginInstance,
     ],
     module: {
         rules: [
