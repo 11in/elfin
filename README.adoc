@@ -1,4 +1,4 @@
-= Elfin
+= Elfin 🧝
 
 An opinionated template for building a site based on link:https:11ty.dev[11ty] and link:https://tailwindcss.com[Tailwind].
 
