@@ -12,7 +12,7 @@ An opinionated template for building a site based on link:https:11ty.dev[11ty] a
 == How Do I Use It
 
 - `npm run build` - Builds the entire site into the `dist` directory
-- `npm run watch` - Builds, watches, and serves the site at https://localhost:8080
+- `npm run serve` - Builds, watches, and serves the site at https://localhost:8080
 
 == Documentation
 

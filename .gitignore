@@ -3,3 +3,4 @@
 
 # Webpack asset destination
 /site/assets
+/site/_data/assets.json

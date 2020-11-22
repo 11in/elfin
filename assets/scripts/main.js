@@ -1,5 +1,4 @@
 // do stuff
-import '../styles/main.css';
 const main = async () => {
     console.log('Fetching data, awaiting response...');
     const response = await fetch('https://httpbin.org/user-agent');

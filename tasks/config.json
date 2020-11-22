@@ -1,7 +1,0 @@
-{
-  "publicPath": "/",
-  "publicDir": "site/assets",
-  "publicStaticPath": "/",
-  "publicStaticDir": "site/assets",
-  "manifestFileName": "revisioned-asset-manifest.json"
-}
