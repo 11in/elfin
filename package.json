@@ -15,7 +15,7 @@
     "content:watch": "npx @11ty/eleventy --watch",
     "content:serve": "npx @11ty/eleventy --serve",
     "content:debug": "DEBUG=Eleventy* content:build",
-    "assets:clean": "rimraf ./site/assets /site/_data/assets.json",
+    "assets:clean": "rimraf ./content/assets ./content/_data/assets.json",
     "assets:build": "webpack",
     "assets:watch": "webpack --watch",
     "preserve": "npm run assets:build",

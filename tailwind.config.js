@@ -4,8 +4,8 @@ module.exports = {
         removeDeprecatedGapUtilities: true,
     },
     purge: [
-        './site/**/*.njk',
-        './site/**/*.html',
+        './content/**/*.njk',
+        './content/**/*.html',
         './assets/scripts/**/*.js',
     ],
     theme: {

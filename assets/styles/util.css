@@ -1,5 +1,0 @@
-/**
-    This is in a separate file so that rebuilds will run quicker.
-    Don't put anything else in this file.
- */
-@import "tailwindcss/utilities";

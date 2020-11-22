@@ -2,5 +2,5 @@
 /dist
 
 # Webpack asset destination
-/site/assets
-/site/_data/assets.json
+/content/assets
+/content/_data/assets.json

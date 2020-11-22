@@ -9,7 +9,7 @@ const AssetsPlugin = require('assets-webpack-plugin');
 const assetsPluginInstance = new AssetsPlugin({
     filename: 'assets.json',
     fullPath: false,
-    path: path.join(__dirname, 'site', '_data'),
+    path: path.join(__dirname, 'content', '_data'),
     integrity: true,
 });
 
@@ -55,7 +55,7 @@ module.exports = [{
     stats: 'errors-only',
     output: {
         filename: isProd ? '[name].[contenthash].mjs' : '[name].mjs',
-        path: path.join(__dirname, 'site', 'assets'),
+        path: path.join(__dirname, 'content', 'assets'),
     },
     optimization: {
         splitChunks: {
@@ -105,7 +105,7 @@ module.exports = [{
     },
     output: {
         filename: isProd ? '[name].[contenthash].js' : '[name].js',
-        path: path.resolve(__dirname, 'site', 'assets'),
+        path: path.resolve(__dirname, 'content', 'assets'),
     },
     plugins: [
         assetsPluginInstance,

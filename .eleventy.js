@@ -8,7 +8,7 @@ module.exports = function (conf) {
      * Copy assets into root, so that manifest records don't need modification.
      */
     conf.addPassthroughCopy({
-        "site/assets": "/"
+        "content/assets": "/"
     });
 
     /**
@@ -20,7 +20,7 @@ module.exports = function (conf) {
 
     return {
         dir: {
-            input: "site",
+            input: "content",
             output: "dist"
         }
     }
