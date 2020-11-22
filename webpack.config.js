@@ -44,12 +44,14 @@ module.exports = [{
     mode: process.env.NODE_ENV || 'development',
     devtool: 'source-map',
     entry: {
-        modern: path.join(__dirname, 'assets', 'entry.js')
+        modern: path.join(__dirname, 'assets', 'entry.js'),
     },
     stats: 'errors-only',
     output: {
         filename: isProd ? '[name].[contenthash].mjs' : '[name].mjs',
         path: path.join(__dirname, 'content', 'assets'),
+        assetModuleFilename: 'images/[name]-[hash][ext][query]',
+        publicPath: "/"
     },
     optimization: {
         splitChunks: {
@@ -85,6 +87,10 @@ module.exports = [{
                     },
                     'postcss-loader',
                 ]
+            },
+            {
+                test: /\.(png|jpg|gif)$/i,
+                type: 'asset/resource'
             }
         ]
     }
@@ -99,6 +105,7 @@ module.exports = [{
     output: {
         filename: isProd ? '[name].[contenthash].js' : '[name].js',
         path: path.resolve(__dirname, 'content', 'assets'),
+        publicPath: "/",
     },
     plugins: [
         assetsPluginInstance,

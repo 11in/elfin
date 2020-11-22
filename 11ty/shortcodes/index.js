@@ -1,5 +1,5 @@
-const manifest = require('./manifest');
+const imageAsset = require('./imageAsset');
 
 module.exports = conf => {
-    manifest(conf);
+    imageAsset(conf);
 }

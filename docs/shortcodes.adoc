@@ -9,32 +9,15 @@ For re-usable pieces of code defined at the template level, take a look at link:
 
 Elfin comes with a number of shortcodes built in that you might find helpful.
 
-== assetTag
+== asset_image
 
-This will generate an appropriate tag for the at type of asset that is built
-by the build process
-(generally this means JS or CSS).
+Get the path to an image file that's tracked as part of our assets.
 
-[source,html]
-----
-{% assetTag 'assetType', 'filename.ext', 'attributes="values"' %}
-----
+For instance, if you put an image in `assets/images/dog.jpg`, you can do the following to get its path:
 
-Current it supports:
+```html
+<img src={% asset_image assets, 'dog.jpg' %} />
+<!-- <img src="images/dog-4ccafcc9a11e688e7e3c.jpg" /> -->
+```
 
-- `css` / `style`
-- `js` / `script`
-
-== assetName
-
-This returns the cache-busted file name for a generic filename, i.e. `{% assetName 'main.css' %}` might return `main-97d1633e0a.css`.
-
-Always use this
-(or another of the `asset` shortcodes)
-when references assets that pass through the build process to make sure you get the correct names.
-
-== assetContent
-
-This will return the content of an asset file.
-This might be useful if you want to inline a CSS or JS file.
-
+The point of this is that it will return the slightly modified path and content hash that are created by the build process.
