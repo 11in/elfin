@@ -1,5 +1,5 @@
 {
-  "name": "vity",
+  "name": "elfin",
   "version": "1.1.0-alpha",
   "description": "11ty starter package.",
   "main": "index.js",
@@ -8,7 +8,8 @@
     "build": "run-s clean task:build",
     "watch": "run-s clean task:watch",
     "task:build": "node tasks/build.js",
-    "task:watch": "node tasks/watch.js"
+    "task:watch": "node tasks/watch.js",
+    "debug:eleventy": "DEBUG=Eleventy* npm run build"
   },
   "author": "Ben Martinez-Bateman <ben@alwaysblank.org>",
   "license": "ISC",
