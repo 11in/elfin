@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "serve": "run-p assets:watch content:serve",
-    "build": "npm run all:build",
+    "build": "run-s all:clean all:build",
     "all:clean": "run-p content:clean assets:clean",
     "all:build": "run-s assets:build content:build",
     "all:production": "cross-env NODE_ENV=production npm run all:build",
@@ -14,13 +14,13 @@
     "content:build": "npx @11ty/eleventy",
     "content:watch": "npx @11ty/eleventy --watch",
     "content:serve": "npx @11ty/eleventy --serve",
+    "content:dev": "run-s assets:build content:serve",
     "content:debug": "DEBUG=Eleventy* content:build",
     "assets:clean": "rimraf ./content/assets ./content/_data/assets.json",
     "assets:build": "webpack",
     "assets:watch": "webpack --watch",
     "preserve": "npm run assets:build",
-    "preassets:build": "npm run assets:clean",
-    "preassets:watch": "npm run assets:clean"
+    "preassets:build": "npm run assets:clean"
   },
   "author": "Ben Martinez-Bateman <ben@alwaysblank.org>",
   "license": "ISC",
