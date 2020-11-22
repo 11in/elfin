@@ -20,6 +20,7 @@
     "assets:build": "webpack",
     "assets:watch": "webpack --watch",
     "preserve": "npm run assets:build",
+    "preall:production": "npm run all:clean",
     "preassets:build": "npm run assets:clean"
   },
   "author": "Ben Martinez-Bateman <ben@alwaysblank.org>",

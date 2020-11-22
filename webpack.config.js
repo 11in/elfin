@@ -9,6 +9,21 @@ const assetsPluginInstance = new AssetsPlugin({
 
 const isProd = process.env.NODE_ENV === 'production';
 
+/**
+ * Gets an array of all images in our assets folder
+ * @return {string[]}
+ */
+const getImages = () => {
+    const {readdirSync} = require('fs');
+    const {join, parse} = require('path');
+    return readdirSync(join(process.cwd(), 'assets', 'images'))
+        .filter(data => {
+            const {ext} = parse(data);
+            return ['.gif', '.jpg', '.png', '.svg'].includes(ext)
+        })
+        .map(data => join(process.cwd(), 'assets', 'images', data));
+}
+
 const configureBabelLoader = (browserlist) => {
     return {
         test: /\.js$/,
@@ -45,6 +60,7 @@ module.exports = [{
     devtool: 'source-map',
     entry: {
         modern: path.join(__dirname, 'assets', 'entry.js'),
+        images: getImages(),
     },
     stats: 'errors-only',
     output: {
@@ -89,7 +105,7 @@ module.exports = [{
                 ]
             },
             {
-                test: /\.(png|jpg|gif)$/i,
+                test: /\.(png|jpg|gif|svg)$/i,
                 type: 'asset/resource'
             }
         ]

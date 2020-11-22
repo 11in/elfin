@@ -1,4 +1,6 @@
 const includes = require('./11ty/index');
+const rimraf = require('rimraf');
+const {join} = require('path');
 
 module.exports = function (conf) {
 
@@ -17,6 +19,15 @@ module.exports = function (conf) {
     conf.setUseGitIgnore(false);
 
     conf.setQuietMode(true);
+
+    conf.on('afterBuild', () => {
+        // Remove unneeded images.mjs files
+        rimraf(join(process.cwd(), 'dist', 'images.*.mjs?(.map)'), {}, err => {
+            if (err) {
+                console.error(err)
+            }
+        });
+    });
 
     return {
         dir: {

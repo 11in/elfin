@@ -1,5 +1,5 @@
-const imageAsset = require('./imageAsset');
+const asset = require('./asset');
 
 module.exports = conf => {
-    imageAsset(conf);
+    asset(conf);
 }

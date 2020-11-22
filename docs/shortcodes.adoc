@@ -21,3 +21,19 @@ For instance, if you put an image in `assets/images/dog.jpg`, you can do the fol
 ```
 
 The point of this is that it will return the slightly modified path and content hash that are created by the build process.
+
+== asset_inline
+
+This will return the content of an asset file.
+Primarily this will be useful for inlining SVGs
+(instead of treating them like tranditional images).
+
+[WARNING]
+====
+This shortcode will not prevent you from attempting to inline files you really shouldn't inline, like JPGs or PNGs.
+It should also go without saying, but *never inline user-provided files*!
+====
+
+```html
+{% asset_inline assets, 'map.svg' %}
+<!-- <svg><path d="M15.1517 4.7391L15.8936 ... ></svg> -->
