@@ -14,6 +14,10 @@ An opinionated template for building a site based on link:https:11ty.dev[11ty] a
 - `npm run build` - Builds the entire site into the `dist` directory
 - `npm run watch` - Builds, watches, and serves the site at https://localhost:8080
 
+== Documentation
+
+- link:docs/shortcodes.adoc[Shortcodes]
+
 == Resources
 
 - A lot of what this package does is based on link:https://philipwalton.com/articles/deploying-es2015-code-in-production-today/[this article] and link:https://github.com/philipwalton/webpack-esnext-boilerplate[this repo] that implements the article's advice.

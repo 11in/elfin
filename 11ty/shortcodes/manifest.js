@@ -1,25 +1,21 @@
-const fs = require("fs");
-const path = require("path");
-const util = require("util");
-const readFile = util.promisify(fs.readFile);
-
-const webpackAsset = async name => {
-    const buildConf = await readFile(path.resolve(__dirname, "..", "..", "tasks", "config.json"));
-    const manifestData = await readFile(
-        path.resolve(__dirname, "..", "..", "site", "assets", JSON.parse(buildConf).manifestFileName)
-    );
-    const manifest = JSON.parse(manifestData);
-    return manifest[name];
-};
-
-const webpackAssetContents = async name => {
-    const assetName = await webpackAsset(name);
-    const filePath = path.resolve(__dirname, "dist", "assets", assetName);
-
-    return readFile(filePath);
-};
+const {webpackAsset, webpackAssetContents} = require("../tools/manifest");
 
 module.exports = conf => {
-    conf.addAsyncShortcode('manifest', webpackAsset)
-    conf.addAsyncShortcode('manifestContent', webpackAssetContents)
+    conf.addAsyncShortcode('assetName', webpackAsset)
+    conf.addAsyncShortcode('assetContent', webpackAssetContents)
+    conf.addAsyncShortcode('assetTag', async function (type, asset, attrs) {
+        const name = await webpackAsset(asset);
+        if (name) {
+            switch (type) {
+                case 'style':
+                case 'css':
+                    return `<link rel="stylesheet" ${attrs} href=${name} />`
+                case 'script':
+                case 'js':
+                    return `<script ${attrs} src="${name}"></script>`
+            }
+        }
+
+        return ``;
+    })
 }

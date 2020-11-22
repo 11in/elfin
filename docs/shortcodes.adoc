@@ -1,0 +1,40 @@
+= Shortcodes
+
+11ty makes use of link:https://www.11ty.dev/docs/shortcodes/[shortcodes], which are essentially re-usable bits defined at the generator level.
+
+[TIP]
+====
+For re-usable pieces of code defined at the template level, take a look at link:https://mozilla.github.io/nunjucks/templating.html#macro[Nunjucks "macros."]
+====
+
+Elfin comes with a number of shortcodes built in that you might find helpful.
+
+== assetTag
+
+This will generate an appropriate tag for the at type of asset that is built
+by the build process
+(generally this means JS or CSS).
+
+[source,html]
+----
+{% assetTag 'assetType', 'filename.ext', 'attributes="values"' %}
+----
+
+Current it supports:
+
+- `css` / `style`
+- `js` / `script`
+
+== assetName
+
+This returns the cache-busted file name for a generic filename, i.e. `{% assetName 'main.css' %}` might return `main-97d1633e0a.css`.
+
+Always use this
+(or another of the `asset` shortcodes)
+when references assets that pass through the build process to make sure you get the correct names.
+
+== assetContent
+
+This will return the content of an asset file.
+This might be useful if you want to inline a CSS or JS file.
+

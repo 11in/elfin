@@ -36,7 +36,7 @@ const configurePlugins = () => {
     }),
 
     new MiniCssExtractPlugin({
-      filename: `${filenamePattern("styles")}.css`,
+      filename: `${filenamePattern("[name]-[chunkhash:10]")}.css`,
       chunkFilename: `${chunkFileNamePattern}.css`,
       ignoreOrder: false
     }),
