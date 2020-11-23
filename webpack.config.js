@@ -1,5 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const AssetsPlugin = require('assets-webpack-plugin');
 const assetsPluginInstance = new AssetsPlugin({
     filename: 'assets.json',
@@ -79,6 +80,24 @@ module.exports = [{
             filename: isProd ? '[name].[contenthash].css' : '[name].css'
         }),
         assetsPluginInstance,
+        new ImageMinimizerPlugin({
+            minimizerOptions: {
+                plugins: [
+                    ['jpegtran', {progressive: true}],
+                    ['optipng', {optimizationLevel: 5}],
+                    [
+                        'svgo',
+                        {
+                            plugins: [
+                                {
+                                    removeViewBox: false,
+                                },
+                            ],
+                        },
+                    ],
+                ],
+            },
+        }),
     ],
     module: {
         rules: [
@@ -106,7 +125,7 @@ module.exports = [{
             },
             {
                 test: /\.(png|jpg|gif|svg)$/i,
-                type: 'asset/resource'
+                type: 'asset/resource',
             }
         ]
     }

@@ -7,7 +7,8 @@ An opinionated template for building a site based on link:https:11ty.dev[11ty] a
 - Simple server w/ BrowserSync that watches changes to styles, scripts, and content
 - Delivers modern JS to modern browsers, and shitty JS to shitty browsers
 - Tailwind!
-- Other cool things I've yet to enumerate
+- Minimizes and optimizes CSS and JS
+- Lossless compression of images (jpg, png, svg)
 
 == How Do I Use It
 
