@@ -14,12 +14,15 @@ module.exports = function (conf) {
     });
 
     /**
-     * This is necessary so that we rebuild when assets are rebuilt
+     * This is necessary so that we rebuild when assets are rebuilt.
      */
     conf.setUseGitIgnore(false);
 
     conf.setQuietMode(true);
 
+    /**
+     * Run some cleanup after a build is made.
+     */
     conf.on('afterBuild', () => {
         // Remove unneeded images.mjs files
         rimraf(join(process.cwd(), 'dist', 'images.*.mjs?(.map)'), {}, err => {
@@ -32,7 +35,9 @@ module.exports = function (conf) {
     return {
         dir: {
             input: "content",
-            output: "dist"
+            output: "dist",
+            includes: "_includes",
+            layouts: "_layouts",
         }
     }
 };
