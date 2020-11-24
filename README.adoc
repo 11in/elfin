@@ -1,6 +1,30 @@
+:Author: Ben Martinez-Bateman
+:Email: ben@alwaysblank.org
+:toc: macro
+:toclevels: 3
+:toc-title:
+:sectanchors:
+:sectlinks:
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+ifndef::env-github[]
+:tip-caption: 💡
+:note-caption: ℹ
+:important-caption: ❗
+:caution-caption: 🔥
+:warning-caption: ⚠
+endif::[]
+
 = Elfin 🧝
 
 An opinionated template for building a site based on link:https:11ty.dev[11ty] and link:https://tailwindcss.com[Tailwind].
+
+toc::[]
 
 == What Do You Get
 
@@ -53,7 +77,9 @@ elfin/                    # -> Your project directory
 
 == Documentation
 
-- link:docs/shortcodes.adoc[Shortcodes]
+include::docs/shortcodes.adoc[leveloffset=+2]
+include::docs/filters.adoc[leveloffset=+2]
+include::docs/extending.adoc[leveloffset=+2]
 
 == Resources
 

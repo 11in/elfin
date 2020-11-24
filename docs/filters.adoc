@@ -1,0 +1,32 @@
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+ifndef::env-github[]
+:tip-caption: 💡
+:note-caption: ℹ
+:important-caption: ❗
+:caution-caption: 🔥
+:warning-caption: ⚠
+endif::[]
+
+= Filters
+
+11ty makes use of link:https://www.11ty.dev/docs/filters/[filters] which are a way to modify content on the fly in your templates.
+
+Currently, Elfin ships with only one filter, which is entirely useless and exists only to demonstrate how to add and use custom filters.
+If you'd like to add your own filters, checkout out link:extending.adoc[Extending 11ty].
+
+== example_filter
+
+This filter is useless:
+All it does is reverse whatever string is passed to it.
+
+[source, html]
+----
+{{ 'hello' | example_filter }}
+<!-- olleh -->
+----
