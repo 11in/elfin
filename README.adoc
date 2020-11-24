@@ -43,7 +43,7 @@ toc::[]
 [WARNING]
 ====
 Because there are essentially two "builds" that happen here (11ty and Webpack) there is a bit of _file shuffling_ that goes on.
-**If a directory or file is in `.gitignore` then it is probably part of that shuffling and you should leave it alone.** i.e. `site/assets/`, `content/_data/assets.json`, etc.
+**If a directory or file is in `.gitignore` then it is probably part of that shuffling and you should leave it alone.** i.e. `content/assets/`, `content/_data/assets.json`, etc.
 ====
 
 [source,shell script]
