@@ -15,6 +15,35 @@ An opinionated template for building a site based on link:https:11ty.dev[11ty] a
 - `npm run build` - Builds the entire site into the `dist` directory
 - `npm run serve` - Builds, watches, and serves the site at https://localhost:8080
 
+[source,shell script]
+----
+elfin/                    # -> Your project directory
+├── 11ty                  # -> Extensions to 11ty
+│  ├── index.js           # -> Collects filters, shortcodes, etc
+│  ├── filters/           # -> Add custom filters here
+│  └── shortcodes/        # -> Add custom shortcodes here
+├── assets                # -> Assets that will be process by webpack
+│  ├── entry.js           # -> Defines JS, CSS, for build process
+│  ├── legacy.js          # -> Defines "legacy" build -- add polyfills here
+│  ├── images/            # -> Images to be ingested by build process
+│  ├── scripts/           # -> All your JavaScript
+│  └── styles/            # -> All your CSS
+├── content               # -> Files used by 11ty to build the site
+│  ├── _data/             # -> 11ty global data files
+│  ├── _includes/         # -> 11ty include, partials, etc
+│  ├── _layouts/          # -> 11ty layouts
+│  ├── assets/            # -> Used by build process -- don't touch!
+│  └── index.njk          # -> Example template
+├── dist/                 # -> Where the site is built to -- don't touch!
+├── docs/                 # -> Additional documentation
+├── README.adoc           # -> This document!
+├── package.json          # -> JavaScript Dependencies
+├── eleventy.config.js    # -> 11ty configuration
+├── postcss.config.js     # -> PostCSS configuration
+├── tailwind.config.js    # -> Tailwind configuration
+└── webpack.config.js     # -> Webpack configuration
+----
+
 == Documentation
 
 - link:docs/shortcodes.adoc[Shortcodes]
