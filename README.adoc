@@ -78,7 +78,9 @@ elfin/                    # -> Your project directory
 == Documentation
 
 include::docs/shortcodes.adoc[leveloffset=+2]
+
 include::docs/filters.adoc[leveloffset=+2]
+
 include::docs/extending.adoc[leveloffset=+2]
 
 == Resources
