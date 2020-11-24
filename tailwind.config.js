@@ -1,13 +1,10 @@
 module.exports = {
-    future: {
-        purgeLayersByDefault: true,
-        removeDeprecatedGapUtilities: true,
-    },
     purge: [
         './content/**/*.njk',
         './content/**/*.html',
         './assets/scripts/**/*.js',
     ],
+    darkMode: 'media',
     theme: {
         extend: {},
     },
