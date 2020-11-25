@@ -33,6 +33,7 @@ toc::[]
 - Tailwind!
 - Minimizes and optimizes CSS and JS
 - Lossless compression of images (jpg, png, svg)
+- If on Netlify, using Netlify's caching to only run asset builds if something has been updated
 
 == How Do I Use It
 
