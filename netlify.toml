@@ -6,3 +6,6 @@
 package = "netlify-plugin-cache"
     [plugins.inputs]
     paths = ["content/assets", "content/_data/assets.json", "webpack.hash"]
+
+[build.processing]
+    skip_processing = false
