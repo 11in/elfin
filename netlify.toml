@@ -1,0 +1,8 @@
+[build]
+    publish = "dist/"
+    command = "npm run all:production"
+
+[[plugins]]
+package = "netlify-plugin-cache"
+    [plugins.inputs]
+    paths = ["content/assets", "content/_data/assets.json", "webpack.hash"]

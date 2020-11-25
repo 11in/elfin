@@ -4,3 +4,4 @@
 # Webpack asset destination
 /content/assets
 /content/_data/assets.json
+webpack.hash
