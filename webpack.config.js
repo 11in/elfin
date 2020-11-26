@@ -55,14 +55,19 @@ const configureBabelLoader = (browserlist) => {
     };
 };
 
+let entries = {
+    modern: path.join(__dirname, 'assets', 'entry.js'),
+}
+
+if (getImages().length > 0) {
+    entries['images'] = getImages();
+}
+
 module.exports = [{
     name: 'modern',
     mode: process.env.NODE_ENV || 'development',
     devtool: 'source-map',
-    entry: {
-        modern: path.join(__dirname, 'assets', 'entry.js'),
-        images: getImages(),
-    },
+    entry: entries,
     stats: 'errors-only',
     output: {
         filename: isProd ? '[name].[contenthash].mjs' : '[name].mjs',
