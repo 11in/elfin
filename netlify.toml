@@ -1,6 +1,6 @@
 [build]
     publish = "dist/"
-    command = "npm run all:production"
+    command = "npm run deploy"
 
 [[plugins]]
 package = "netlify-plugin-cache"
