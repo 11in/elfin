@@ -1,0 +1,3 @@
+module.exports = conf => {
+    // conf.addFilter('new_filter', arg => return `filtered ${arg}`)
+}

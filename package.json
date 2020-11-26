@@ -25,6 +25,9 @@
     "preassets:serve": "npm run assets:clean",
     "preassets:watch": "npm run assets:clean"
   },
+  "bin": {
+    "elf": "./cli/elf.js"
+  },
   "author": "Ben Martinez-Bateman <ben@alwaysblank.org>",
   "license": "ISC",
   "devDependencies": {
@@ -56,6 +59,7 @@
     "rimraf": "^3.0.2",
     "tailwindcss": "^2",
     "webpack": "^5",
-    "webpack-cli": "^4"
+    "webpack-cli": "^4",
+    "yargs": "^16.1.1"
   }
 }
