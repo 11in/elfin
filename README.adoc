@@ -84,6 +84,8 @@ include::docs/filters.adoc[leveloffset=+2]
 
 include::docs/extending.adoc[leveloffset=+2]
 
+include::docs/redirects.adoc[leveloffset=+2]
+
 == Resources
 
 - A lot of what this package does is based on link:https://philipwalton.com/articles/deploying-es2015-code-in-production-today/[this article] and link:https://github.com/philipwalton/webpack-esnext-boilerplate[this repo] that implements the article's advice.
