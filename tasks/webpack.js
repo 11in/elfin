@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const config = require('../webpack.config');
+const hashConfig = require('./hash.config');
 const {join} = require('path');
 const {hashElement} = require('folder-hash');
 const {existsSync, readFileSync, writeFile} = require('fs');
@@ -21,7 +22,7 @@ const saveHash = (hash) => {
     })
 }
 
-hashElement(join(__dirname, '..', 'assets'))
+hashElement(join(__dirname, '..'), hashConfig)
     .then(hash => {
         if (hash.hash !== getHash()) {
             console.log("Assets have changed!");
