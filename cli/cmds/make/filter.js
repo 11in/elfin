@@ -1,7 +1,5 @@
-const chalk = require('chalk')
 const {
   logError,
-  logProgress,
   logSuccess,
   filePath,
   makeRelative
