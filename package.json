@@ -1,6 +1,6 @@
 {
   "name": "elfin",
-  "version": "1.5.1-alpha",
+  "version": "1.6.0-alpha",
   "description": "11ty starter package.",
   "main": "index.js",
   "scripts": {
