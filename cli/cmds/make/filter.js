@@ -61,6 +61,6 @@ exports.handler = function (argv) {
       return writeFile(filterIndex, newIndexContent)
     })
     .then(() => logProgress(`Inserted require statement into loader`))
-    .then(() => logSuccess(`${argv.name} added!`))
+    .then(() => logSuccess(`${argv.name} added in ${filterFile.replace(process.cwd(), '')}`))
     .catch(error => logError(error))
 }
