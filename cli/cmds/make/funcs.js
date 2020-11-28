@@ -1,8 +1,4 @@
 const {
-    data
-} = require('autoprefixer')
-const chalk = require('chalk')
-const {
     readFile,
     writeFile
 } = require('fs/promises')
@@ -13,16 +9,39 @@ const {
     logProgress,
     filePath,
     makeRelative,
+    logNotice,
+    makeSafe,
 } = require('../../helpers')
+const {
+    render
+} = require('mustache')
 
 module.exports = {
-    createStub: (stubPath, destPath) => {
-        const destFilename = basename(destPath)
-        const stubFilename = basename(stubPath)
-        return readFile(stubPath, 'utf-8')
+    createStub: ({stub, destination, modify, argv}) => {
+        if (argv.stub) {
+            stub = argv.stub
+            logNotice(`Using custom stub ${filePath(argv.stub)}`)
+            console.log('')
+        }
+
+        const destFilename = basename(destination)
+        const stubFilename = basename(stub)
+
+        return readFile(stub, 'utf-8')
             .then(async content => {
+                // Allow for mustache templating
+                let toWrite = render(content, {
+                    extension_name: makeSafe(argv.name),
+                    // Give mustache templates access to any arguments passed
+                    ...argv
+                });
+
+                // modifyContent happens after mustache to allow for addl customization
+                if (undefined !== modify) {
+                    toWrite = modify(content)
+                }
                 try {
-                    await writeFile(destPath, content, {
+                    await writeFile(destination, toWrite, {
                         flag: 'wx',
                     })
                     logProgress(`Wrote ${filePath(destFilename)}`)
@@ -41,7 +60,7 @@ module.exports = {
                     return Promise.reject(`${filePath(stubFilename)} stub could not be found!`)
                 }
 
-                return Promise.reject(error)
+                return Promise.reject(err)
             })
     },
     insertIntoLoader: (loaderPath, confPath, insertAfter) => {

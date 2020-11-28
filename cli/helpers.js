@@ -12,10 +12,19 @@ module.exports = {
         console.log(``)
         console.log(chalk.blue(`✅ ${msg}`))
     },
+    logNotice: msg => {
+        console.log(chalk.blue(`ℹ️ ${msg}`))
+    },
     filePath: path => {
         return chalk.bgGreen.black(` ${path} `)
     },
     makeRelative: path => {
         return path.replace(`${process.cwd()}/`, '')
+    },
+    makeSafe: string => {
+        return string.replace(/[^a-z0-9_]/gi, '_').toLowerCase()
+    },
+    getSubcommand: yargs => {
+        return yargs.getContext().commands.join(' ')
     }
 }
