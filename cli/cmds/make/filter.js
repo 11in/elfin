@@ -1,7 +1,5 @@
-const {
-  data
-} = require('autoprefixer');
-const { async } = require('regenerator-runtime');
+const chalk = require('chalk')
+const {logError, logProgress, logSuccess} = require('../../helpers')
 
 exports.command = 'filter <name>'
 exports.alias = 'make filter'
@@ -14,9 +12,10 @@ exports.handler = function (argv) {
     readFile,
     writeFile
   } = require('fs/promises');
+  const fileName = `${argv.name}.js`
   const stubPath = join(__dirname, 'stubs', 'filter.stub');
   const filterDir = join(process.cwd(), '11ty', 'filters');
-  const filterFile = join(filterDir, `${argv.name}.js`);
+  const filterFile = join(filterDir, fileName);
   const filterIndex = join(filterDir, 'index.js');
 
   // Create the filter file
@@ -27,11 +26,11 @@ exports.handler = function (argv) {
         await writeFile(filterFile, fileContents, {
           flag: 'wx'
         })
-        console.log("Wrote new filter file")
+        logProgress(`Wrote ${fileName}`)
         return
       } catch (error) {
         if (`EEXIST` === error.code) {
-          return Promise.reject("Filter file already exists")
+          return Promise.reject(`${fileName} already exists`)
         }
 
         // If it's a different error, push that up the chain
@@ -42,10 +41,10 @@ exports.handler = function (argv) {
       return readFile(filterIndex, 'utf-8')
     })
     .then(fileContents => {
-      const newFilterRequire = `require('./${argv.name}.js')(conf);`;
+      const newFilterRequire = `require('./${fileName}')(conf);`;
 
       if (-1 !== fileContents.indexOf(newFilterRequire)) {
-        return Promise.reject("Filter already included in index file")
+        return Promise.reject(`${fileName} already included in index file`)
       }
 
       let data = fileContents.split(`\n`)
@@ -61,7 +60,7 @@ exports.handler = function (argv) {
     .then(newIndexContent => {
       return writeFile(filterIndex, newIndexContent)
     })
-    .then(() => console.log("Inserted new filter into loader"))
-    .then(() => console.log("Filter added!"))
-    .catch(error => console.error(error));
+    .then(() => logProgress(`Inserted require statement into loader`))
+    .then(() => logSuccess(`${argv.name} added!`))
+    .catch(error => logError(error))
 }
