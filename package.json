@@ -26,7 +26,7 @@
     "preassets:watch": "npm run assets:clean"
   },
   "bin": {
-    "elf": "./cli/elf.js"
+    "elf": "./cli/elf"
   },
   "author": "Ben Martinez-Bateman <ben@alwaysblank.org>",
   "license": "ISC",

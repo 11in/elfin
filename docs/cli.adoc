@@ -1,0 +1,108 @@
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+ifndef::env-github[]
+:tip-caption: 💡
+:note-caption: ℹ
+:important-caption: ❗
+:caution-caption: 🔥
+:warning-caption: ⚠
+endif::[]
+
+= CLI
+
+There are some repetetive tasks you may need to do with a package like this, so there's a CLI to help you with some of those.
+
+If you find yourself needing a particular tool in the CLI, feel free to submit a PR or a feature request issue.
+
+== Usage
+
+To run the cli, you can do:
+
+[source,bash]
+----
+$ ./cli/elf
+----
+
+If you'd like to make things a little easier on yourself, you can do this:
+
+[source,bash]
+----
+$ npm link
+$ elf
+----
+
+[WARNING]
+====
+This will globally link the `elf` executable in this particular project, so remember to run `npm unlink` when you're done--otherwise you may get some strange results in other projects.
+====
+
+[IMPORTANT]
+====
+Make sure you have the appropriate `bin` directory in your path.
+(It'll show you the path in the output of `npm link`.)
+Otherwise `npm link` won't work.
+====
+
+== Tools
+
+=== make
+
+`elf make` helps you to quickly scaffold extentions to 11ty--and eventually otherw things as well, like templates, partials, etc.
+
+All current `make` types come with default stub files that add essentially useless placeholder code.
+If you want to use your own stubs, you can do so by passing a path to the `--stub` option when calling the command:
+
+[source,bash]
+----
+elf make collection ships --stub ./collections.stub
+----
+
+[NOTE]
+====
+Your custom stubs can contain whatever you like, but they will be parsed as link:https://github.com/janl/mustache.js[mustache] templates, and will be passed all the arguments passed to function. 
+That means you can do something like this:
+
+[source,javascript]
+----
+// custom.stub
+console.log('{{ custom_arg }}')
+----
+
+[source,bash]
+----
+$ elf make filter example_filter --stub ./custom.stub --custom_arg 'Hello there'
+----
+
+[source,js]
+----
+// filters/example_filter.js
+console.log('Hello there')
+----
+====
+
+Currently, `make` can create three types of things:
+
+
+`elf make collection`:: Creates an link:https://www.11ty.dev/docs/collections/[11ty collection].
+You can optionally pass an argument to `--glob` to define the glob used to collect files, i.e. `elf make collection ships --glob 'ships/**/*.md'`.
+If you don't, the collection generated will get all files.
+
+`elf make filter`:: Creates an link:https://www.11ty.dev/docs/filters/[11ty filter]
+(specifically a Universal Filter).
+Read more about link:filters.adoc[Elfin's filters].
+
+`elf make shortcode`:: Create an link:https://www.11ty.dev/docs/shortcodes/[11ty shortcode]
+(specifically a Universal Shortcode).
+Read more about link:shortcodes.adoc[Elfin's filters].
+
+For more information on any of these things, just call them with the `--help` argument:
+
+[source,bash]
+----
+elf make collection --help
+----
