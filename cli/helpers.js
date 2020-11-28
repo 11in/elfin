@@ -11,5 +11,11 @@ module.exports = {
     logSuccess: msg => {
         console.log(``)
         console.log(chalk.blue(`✅ ${msg}`))
+    },
+    filePath: path => {
+        return chalk.bgGreen.black(` ${path} `)
+    },
+    makeRelative: path => {
+        return path.replace(`${process.cwd()}/`, '')
     }
 }
