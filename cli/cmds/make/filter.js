@@ -16,7 +16,7 @@ exports.handler = function (argv) {
   const stubPath = join(__dirname, 'stubs', 'filter.stub');
   const filterDir = join(process.cwd(), '11ty', 'filters');
   const filterFile = join(filterDir, fileName);
-  const filterIndex = join(filterDir, 'index.js');
+  const filterIndex = join(filterDir, 'loader.js');
 
   // Create the filter file
   readFile(stubPath, 'utf-8')
@@ -44,14 +44,14 @@ exports.handler = function (argv) {
       const newFilterRequire = `require('./${fileName}')(conf);`;
 
       if (-1 !== fileContents.indexOf(newFilterRequire)) {
-        return Promise.reject(`${fileName} already included in index file`)
+        return Promise.reject(`${fileName} already included in loader`)
       }
 
       let data = fileContents.split(`\n`)
       const line = data.indexOf(`module.exports = conf => {`);
 
       if (-1 === line) {
-        return Promise.reject("Could not insert into filter index file")
+        return Promise.reject("Could not insert into filter loader")
       }
 
       data.splice(line + 1, 0, `\t${newFilterRequire}`)
