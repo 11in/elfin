@@ -42,17 +42,6 @@ exports.handler = function (argv) {
   const collectionFile = join(collectionDir, fileName);
   const collectionIndex = join(collectionDir, 'loader.js');
 
-  const rewriteStub = stub => {
-    let content = stub
-    content = content.replace(`new_collection`, safeName)
-
-    if (argv.glob) {
-      content = content.replace(`getAll()`, )
-    }
-
-    return content
-  }
-
   // Create the collection file
   createStub({
       stub: stubPath,
