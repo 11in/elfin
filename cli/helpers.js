@@ -21,8 +21,8 @@ module.exports = {
     makeRelative: path => {
         return path.replace(`${process.cwd()}/`, '')
     },
-    makeSafe: string => {
-        return string.replace(/[^a-z0-9_]/gi, '_').toLowerCase()
+    makeSafe: (string, replace = '_') => {
+        return string.replace(/[^a-z0-9_]/gi, replace).toLowerCase()
     },
     getSubcommand: yargs => {
         return yargs.getContext().commands.join(' ')
