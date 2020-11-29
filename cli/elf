@@ -18,6 +18,11 @@ try {
         .commandDir('cmds')
         .demandCommand()
         .help()
+        .fail((msg, err, yargs) => {
+            if (err) throw err
+            logError(msg)
+            process.exit(1)
+        })
         .argv
 } catch (err) {
     if ('MODULE_NOT_FOUND' === err.code) {
