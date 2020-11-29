@@ -5,7 +5,6 @@ const {
   makeRelative,
   makeSafe,
   getSubcommand,
-  logNotice
 } = require('../../helpers')
 const {
   createStub,

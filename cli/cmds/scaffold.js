@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-exports.command = 'make <command>'
+exports.command = 'scaffold <command>'
 exports.description = 'Scaffold useful things'
 exports.builder = (yargs) => {
   return yargs
-    .commandDir('make')
+    .commandDir('scaffold')
     .options({
       'stub': {
         alias: 's',

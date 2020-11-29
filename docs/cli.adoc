@@ -50,16 +50,16 @@ Otherwise `npm link` won't work.
 
 == Tools
 
-=== make
+=== scaffold
 
-`elf make` helps you to quickly scaffold extentions to 11ty--and eventually other things as well, like templates, partials, etc.
+`elf scaffold` helps you to quickly scaffold extentions to 11ty--and eventually other things as well, like templates, partials, etc.
 
-All current `make` types come with default stub files that add essentially useless placeholder code.
+All current `scaffold` types come with default stub files that add essentially useless placeholder code.
 If you want to use your own stubs, you can do so by passing a path to the `--stub` option when calling the command:
 
 [source,bash]
 ----
-elf make collection ships --stub ./collections.stub
+elf scaffold collection ships --stub ./collections.stub
 ----
 
 [NOTE]
@@ -75,7 +75,7 @@ console.log('{{ custom_arg }}')
 
 [source,bash]
 ----
-$ elf make filter example_filter --stub ./custom.stub --custom_arg 'Hello there'
+$ elf scaffold filter example_filter --stub ./custom.stub --custom_arg 'Hello there'
 ----
 
 [source,js]
@@ -85,17 +85,17 @@ console.log('Hello there')
 ----
 ====
 
-Currently, `make` can create three types of things:
+Currently, `scaffold` can create three types of things:
 
-`elf make collection`:: Creates an link:https://www.11ty.dev/docs/collections/[11ty collection].
-You can optionally pass an argument to `--glob` to define the glob used to collect files, i.e. `+elf make collection ships --glob 'ships/**/*.md'+`.
+`elf scaffold collection`:: Creates an link:https://www.11ty.dev/docs/collections/[11ty collection].
+You can optionally pass an argument to `--glob` to define the glob used to collect files, i.e. `+elf scaffold collection ships --glob 'ships/**/*.md'+`.
 If you don't, the collection generated will get all files.
 
-`elf make filter`:: Creates an link:https://www.11ty.dev/docs/filters/[11ty filter]
+`elf scaffold filter`:: Creates an link:https://www.11ty.dev/docs/filters/[11ty filter]
 (specifically a Universal Filter).
 Read more about link:filters.adoc[Elfin's filters].
 
-`elf make shortcode`:: Create an link:https://www.11ty.dev/docs/shortcodes/[11ty shortcode]
+`elf scaffold shortcode`:: Create an link:https://www.11ty.dev/docs/shortcodes/[11ty shortcode]
 (specifically a Universal Shortcode).
 Read more about link:shortcodes.adoc[Elfin's filters].
 
@@ -103,5 +103,5 @@ For more information on any of these things, just call them with the `--help` ar
 
 [source,bash]
 ----
-elf make collection --help
+elf scaffold collection --help
 ----
