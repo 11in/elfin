@@ -1,5 +1,4 @@
 const { DateTime } = require("luxon");
-const { string } = require("yargs");
 
 module.exports = {
     collections: [{
