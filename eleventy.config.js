@@ -1,4 +1,4 @@
-const includes = require('./11ty/index');
+const includes = require('./11ty/loader');
 const rimraf = require('rimraf');
 const {join} = require('path');
 
