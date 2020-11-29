@@ -52,7 +52,7 @@ Otherwise `npm link` won't work.
 
 === make
 
-`elf make` helps you to quickly scaffold extentions to 11ty--and eventually otherw things as well, like templates, partials, etc.
+`elf make` helps you to quickly scaffold extentions to 11ty--and eventually other things as well, like templates, partials, etc.
 
 All current `make` types come with default stub files that add essentially useless placeholder code.
 If you want to use your own stubs, you can do so by passing a path to the `--stub` option when calling the command:
@@ -64,7 +64,7 @@ elf make collection ships --stub ./collections.stub
 
 [NOTE]
 ====
-Your custom stubs can contain whatever you like, but they will be parsed as link:https://github.com/janl/mustache.js[mustache] templates, and will be passed all the arguments passed to function. 
+Your custom stubs can contain whatever you like, but they will be parsed as link:https://github.com/janl/mustache.js[mustache] templates, and will be passed all the arguments the function recieved from the command line. 
 That means you can do something like this:
 
 [source,javascript]
@@ -87,9 +87,8 @@ console.log('Hello there')
 
 Currently, `make` can create three types of things:
 
-
 `elf make collection`:: Creates an link:https://www.11ty.dev/docs/collections/[11ty collection].
-You can optionally pass an argument to `--glob` to define the glob used to collect files, i.e. `elf make collection ships --glob 'ships/**/*.md'`.
+You can optionally pass an argument to `--glob` to define the glob used to collect files, i.e. `+elf make collection ships --glob 'ships/**/*.md'+`.
 If you don't, the collection generated will get all files.
 
 `elf make filter`:: Creates an link:https://www.11ty.dev/docs/filters/[11ty filter]
