@@ -34,6 +34,7 @@ toc::[]
 - Minimizes and optimizes CSS and JS
 - Lossless compression of images (jpg, png, svg)
 - If on Netlify, using Netlify's caching to only run asset builds if something has been updated
+- A handle link:https://github/11in/elf[CLI], if you want it
 
 == How Do I Use It
 
@@ -66,7 +67,6 @@ elfin/                    # -> Your project directory
 │  ├── _layouts/          # -> 11ty layouts
 │  ├── assets/            # -> Used by build process -- don't touch!
 │  └── index.njk          # -> Example template
-├── cli/                  # -> The cli interface -- don't touch!
 ├── dist/                 # -> Where the site is built to -- don't touch!
 ├── docs/                 # -> Additional documentation
 ├── README.adoc           # -> This document!
@@ -86,8 +86,6 @@ include::docs/filters.adoc[leveloffset=+2]
 include::docs/extending.adoc[leveloffset=+2]
 
 include::docs/redirects.adoc[leveloffset=+2]
-
-include::docs/cli.adoc[leveloffset=+2]
 
 == Resources
 

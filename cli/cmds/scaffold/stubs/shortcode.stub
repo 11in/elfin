@@ -1,5 +1,0 @@
-module.exports = conf => {
-    conf.addShortcode('{{ extension_name }}', arg => {
-        // return `shortcoded ${arg}`
-    })
-}

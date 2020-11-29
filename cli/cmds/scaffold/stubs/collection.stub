@@ -1,5 +1,0 @@
-module.exports = conf => {
-    conf.addCollection('{{ extension_name }}', api => {
-        return api.{{{ collection_function }}}
-    })
-}
