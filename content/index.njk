@@ -5,3 +5,5 @@ description: "11ty starter pack"
 ---
 
  <h1>{{ 'Hello' | example_filter }}</h1>
+
+ {% cl_img { path: 'image.jpg', transforms: 'w_400', css: 'mb-2', title: "hello", size: 430, srcset: [640, 768, 1024], alt: "not actually a photo", attrs: [['data-something', 'why']] } %}

@@ -60,6 +60,7 @@
     "webpack-cli": "^4"
   },
   "dependencies": {
+    "@11in/cloudinary": "^1.0.0",
     "@11in/elf-generator-blog": "^1.0.0"
   }
 }

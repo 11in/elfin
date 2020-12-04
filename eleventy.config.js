@@ -1,10 +1,29 @@
 const includes = require('./11ty/loader');
 const rimraf = require('rimraf');
-const {join} = require('path');
+const {
+    join
+} = require('path');
+const cloudinary = require('@11in/cloudinary');
 
 module.exports = function (conf) {
 
+    /**
+     * Bring in all our local exentions.
+     */
     includes(conf);
+
+    /**
+     * Add plugins.
+     */
+    conf.namespace('cl_', () => {
+        conf.addPlugin(cloudinary, {
+            name: "djd6kxozp",
+            base: "https://api.cloudinary.com",
+            defaults: {
+                width: 1024
+            }
+        })
+    });
 
     /**
      * Copy assets into root, so that manifest records don't need modification.
