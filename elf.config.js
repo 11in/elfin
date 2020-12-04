@@ -1,12 +1,10 @@
-
-
 module.exports = {
     functions: {
         scaffold: {},
-        make: {
+        generators: {
             commands: [
-                require('./elf/make/blog'),
-                require('./elf/make/project'),
+                require('./elf/generate/blog'),
+                require('./elf/generate/project'),
             ]
         }
     }

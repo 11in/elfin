@@ -5,6 +5,7 @@ module.exports = {
         contentPath: `content/project/{{ slug }}.md`,
         frontmatter: {
             title: `{{ title }}`,
+            tags: argv => argv.tags,
         }
     },
     module: {
