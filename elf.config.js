@@ -3,7 +3,7 @@ module.exports = {
         scaffold: {},
         generators: {
             commands: [
-                require('./elf/generate/blog'),
+                require('@11in/elf-generator-blog'),
                 require('./elf/generate/project'),
             ]
         }

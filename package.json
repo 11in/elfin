@@ -26,7 +26,7 @@
     "preassets:watch": "npm run assets:clean"
   },
   "author": "Ben Martinez-Bateman <ben@alwaysblank.org>",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
     "@babel/core": "^7.12.8",
@@ -58,5 +58,8 @@
     "tailwindcss": "^2",
     "webpack": "^5",
     "webpack-cli": "^4"
+  },
+  "dependencies": {
+    "@11in/elf-generator-blog": "^1.0.0"
   }
 }
