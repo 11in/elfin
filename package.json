@@ -22,8 +22,7 @@
     "assets:watch": "webpack --watch",
     "preserve": "npm run assets:build",
     "preall:production": "npm run all:clean",
-    "preassets:serve": "npm run assets:clean",
-    "preassets:watch": "npm run assets:clean"
+    "preassets:serve": "npm run assets:clean"
   },
   "author": "Ben Martinez-Bateman <ben@alwaysblank.org>",
   "license": "MIT",
@@ -60,7 +59,7 @@
     "webpack-cli": "^4"
   },
   "dependencies": {
-    "@11in/cloudinary": "^1.0.0",
+    "@11in/cloudinary": "^1.2.1",
     "@11in/elf-generator-blog": "^1.0.0"
   }
 }

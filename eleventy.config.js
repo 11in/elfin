@@ -18,7 +18,9 @@ module.exports = function (conf) {
     conf.namespace('cl_', () => {
         conf.addPlugin(cloudinary, {
             name: "djd6kxozp",
-            base: "https://api.cloudinary.com",
+            transforms: [
+                { dpr: "auto", responsive: true, crop: "scale", }
+            ],
             defaults: {
                 width: 1024
             }
