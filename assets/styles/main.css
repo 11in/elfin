@@ -3,6 +3,5 @@
 @import "tailwindcss/utilities";
 
 body {
-    color: green;
-    background-image: url('../images/elf.jpg');
+    background-color: cornflowerblue;
 }

@@ -1,9 +1,14 @@
 ---
 layout: app.njk
-title: Elfin
+title: 🧝
 description: "11ty starter pack"
 ---
-
- <h1>{{ 'Hello' | example_filter }}</h1>
-
- {% cl_img { path: 'image.jpg', transforms: 'w_400', css: 'mb-2', title: "hello", size: 430, srcset: [640, 768, 1024], alt: "not actually a photo", attrs: [['data-something', 'why']] } %}
+<div class="flex flex-col justify-center items-center p-20 min-h-screen">
+    <h1 class="bold text-4xl uppercase">Elfin 🧝</h1>
+    <div class="mb-4">{{ 'This is backwards to illustrate a trivial filter' | example_filter }}</div>
+    <a class="border-b border-blue-500" href="https://github.com/11in/elfin/#readme">@11in/elfin</a>
+    <div class="p-10">
+        {% cl_img { path: 'elf.jpg', css: 'max-w-full w-96 mx-auto rounded-lg', title: "hello", size: 430, srcset: [640, 768, 1024], alt: "not actually a photo", attrs: [['data-something', 'why']] } %}
+    </div>
+    <img src="/{% asset_image assets, 'dog-face.png' %}" />
+</div>
