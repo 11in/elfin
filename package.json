@@ -3,6 +3,7 @@
   "version": "1.7.1-alpha",
   "description": "11ty starter package.",
   "main": "index.js",
+  "homepage": "https://elfin.netlify.app",
   "scripts": {
     "serve": "run-p assets:watch content:serve",
     "build": "run-s all:clean all:build",
@@ -25,6 +26,10 @@
     "preassets:serve": "npm run assets:clean"
   },
   "author": "Ben Martinez-Bateman <ben@alwaysblank.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/11in/elfin.git"
+  },
   "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
@@ -59,7 +64,7 @@
     "webpack-cli": "^4"
   },
   "dependencies": {
-    "@11in/cloudinary": "^1.2.1",
+    "@11in/cloudinary": "^1.2.2",
     "@11in/elf-generator-blog": "^1.0.0"
   }
 }
