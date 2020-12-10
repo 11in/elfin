@@ -66,8 +66,10 @@
     "webpack-cli": "^4"
   },
   "dependencies": {
+    "@11in/cloudinary": "^1.3.1",
     "@11in/elf-generator-blog": "^1.0.0",
     "dotenv": "^8.2.0",
+    "eleventy-plugin-helmet": "^0.2.1",
     "markdown-it": "^12.0.2",
     "markdown-it-anchor": "^6.0.1",
     "markdown-it-container": "^3.0.0",
