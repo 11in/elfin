@@ -29,37 +29,11 @@ module.exports = function (conf) {
 
     /**
      * Customize the markdown renderer.
+     * This is for 11ty's rendering of md files--it won't apply to other uses
+     * of markdown rendering in the project unless this same library is used
+     * in those instances.
      */
-    const contain = require('markdown-it-container')
-    const changeClass = t => {
-        return {
-            render: (tokens, idx) => {
-                const type = tokens[idx].type;
-                if (`container_${t}_open` === type) {
-                    return `<div class="admonition-${t}">`
-                }
-                else return `</div>`
-            }
-        }
-    }
-    const md = require('markdown-it')({
-            html: true, // For parity w/ 11ty default setting
-            xhtmlOut: true, // Why not validate
-            typographer: true, // Slightly nicer typography
-        })
-        // This adds anchors to headings so they can be linked to
-        .use(require('markdown-it-anchor'))
-        // This allows inserting a table of contents w/
-        .use(require('markdown-it-toc-done-right'), {
-            listType: 'ul',
-        })
-        // These enable admonitions similar to asciidoc
-        .use(contain, 'note', changeClass('note'))
-        .use(contain, 'tip', changeClass('tip'))
-        .use(contain, 'warning', changeClass('warning'))
-        .use(contain, 'important', changeClass('important'))
-
-    conf.setLibrary("md", md)
+    conf.setLibrary("md", require('./11ty/shared/markdown'))
 
     /**
      * This is necessary so that we rebuild when assets are rebuilt.

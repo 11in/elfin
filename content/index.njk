@@ -5,7 +5,8 @@ description: "11ty starter pack"
 ---
 <div class="flex flex-col justify-center items-center p-20 min-h-screen">
     <h1 class="bold text-4xl uppercase">Elfin 🧝</h1>
-    <div class="mb-4">{{ 'This is backwards to illustrate a trivial filter' | example_filter }}</div>
+    <div class="mb-4">{{ "No paragraphs, but there is **bold** and _italic_ text!" | md_inline }}</div>
+    <div class="mb-4">{{ "This is a slightly more _traditional_ section of markdown" | md }}</div>
     <a class="border-b border-blue-500" href="https://github.com/11in/elfin/#readme">@11in/elfin</a>
     <div class="p-10">
         {% cl_img { path: 'elf.jpg', css: 'max-w-full w-96 mx-auto rounded-lg', title: "hello", size: 430, srcset: [640, 768, 1024], alt: "not actually a photo", attrs: [['data-something', 'why']] } %}

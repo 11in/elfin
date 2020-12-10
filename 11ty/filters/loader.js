@@ -1,3 +1,3 @@
 module.exports = conf => {
-    require('./exampleFilter')(conf);
+    require('./markdown')(conf)
 }
