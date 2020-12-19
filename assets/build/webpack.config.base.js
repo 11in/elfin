@@ -19,7 +19,7 @@ module.exports = {
         publicPath: "/",
     },
     mode: process.env.NODE_ENV || 'development',
-    devtool: 'eval-cheap-module-source-map',
+    devtool: isProd ? false : 'eval-cheap-module-source-map',
     stats: 'errors-only',
     plugins: [
         new MiniCssExtractPlugin({
