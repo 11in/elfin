@@ -24,9 +24,6 @@ module.exports = function (conf) {
 
     /**
      * Customize the markdown renderer.
-     * This is for 11ty's rendering of md files--it won't apply to other uses
-     * of markdown rendering in the project unless this same library is used
-     * in those instances.
      */
     conf.setLibrary("md", require('./11ty/shared/markdown'))
 
