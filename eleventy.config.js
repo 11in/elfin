@@ -21,10 +21,11 @@ module.exports = function (conf) {
     includes(conf);
 
     /**
-     * Copy assets into root, so that manifest records don't need modification.
+     * Copy assets into root
      */
     conf.addPassthroughCopy({
-        "content/assets": "/"
+        "content/files": "/files/",
+        "content/_build": "/",
     });
 
     /**

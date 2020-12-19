@@ -1,6 +1,5 @@
 const base = require('./webpack.config.base')
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     ...base,
@@ -8,15 +7,11 @@ module.exports = {
     name: 'main',
     entry: {
         main: [
-            path.join(__dirname, '..', 'assets', 'scripts', 'main.js'),
-            path.join(__dirname, '..', 'assets', 'styles', 'css.js'),
+            path.join(__dirname, '..', '..', 'assets', 'scripts', 'main.js'),
+            path.join(__dirname, '..', '..', 'assets', 'styles', 'css.js'),
         ],
     },
-    plugins: [
-        new MiniCssExtractPlugin({
-            filename: '[name].css',
-        }),
-    ],
+
     devServer: {
         contentBase: path.join(__dirname, '..', 'dist'),
         compress: true,
@@ -24,10 +19,11 @@ module.exports = {
         watchContentBase: true,
         hot: true,
         publicPath: '/',
-        // stats: 'errors-only'
+        stats: 'errors-only'
     },
     module: {
         rules: [
+            ...base.module.rules,
             {
                 test: /\.js$/,
                 use: {
@@ -61,19 +57,7 @@ module.exports = {
                     },
                 },
             },
-            {
-                test: /\.?pcss$/i,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            importLoaders: 1
-                        },
-                    },
-                    'postcss-loader',
-                ]
-            },
+
         ]
     }
 }

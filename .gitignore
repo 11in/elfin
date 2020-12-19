@@ -2,5 +2,5 @@
 /dist
 
 # Webpack asset destination
-/content/assets
+/content/_build
 .webpack
