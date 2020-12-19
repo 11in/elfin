@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "serve": "run-p assets:watch content:serve",
+    "dev": "run-p assets:dev content:dev",
     "build": "run-s all:clean all:build",
     "deploy": "cross-env NODE_ENV=production run-s assets:build content:build",
     "all:clean": "run-p content:clean assets:clean",
@@ -16,14 +17,18 @@
     "content:build": "npx @11ty/eleventy --config=eleventy.config.js",
     "content:watch": "npm run content:build -- --watch",
     "content:serve": "npm run content:build -- --serve",
-    "content:dev": "run-s assets:build content:serve",
+    "content:dev": "npm run content:watch -- --quiet",
     "content:debug": "DEBUG=Eleventy* content:build",
     "assets:clean": "rimraf ./content/assets ./content/_data/assets.json webpack.hash",
-    "assets:build": "node tasks/webpack.js",
+    "assets:build": "webpack",
+    "assets:build:main": "webpack -c ./build/webpack.config.main.js",
+    "assets:build:legacy": "webpack -c ./build/webpack.config.legacy.js",
+    "assets:dev": "webpack serve -c ./build/webpack.config.main.js",
     "assets:watch": "webpack --watch",
     "preserve": "npm run assets:build",
     "preall:production": "npm run all:clean",
-    "preassets:serve": "npm run assets:clean"
+    "preassets:serve": "npm run assets:clean",
+    "predev": "npm run content:build"
   },
   "author": "Ben Martinez-Bateman <ben@alwaysblank.org>",
   "repository": {
@@ -63,7 +68,8 @@
     "rimraf": "^3.0.2",
     "tailwindcss": "^2",
     "webpack": "^5",
-    "webpack-cli": "^4"
+    "webpack-cli": "^4",
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
     "@11in/cloudinary": "^1.3.1",

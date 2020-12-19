@@ -8,3 +8,6 @@ const main = async () => {
 };
 
 main();
+
+const yourl = new URL(window.location);
+console.log(yourl);

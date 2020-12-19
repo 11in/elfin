@@ -3,5 +3,5 @@
 @import "tailwindcss/utilities";
 
 body {
-    background-color: cornflowerblue;
+    background: green;
 }
