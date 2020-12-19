@@ -3,8 +3,6 @@
  */
 require('dotenv').config()
 
-const includes = require('./11ty/loader');
-
 module.exports = function (conf) {
 
     /**
@@ -14,7 +12,7 @@ module.exports = function (conf) {
      *  - Shortcodes
      *  - Collections
      */
-    includes(conf);
+    require('./11ty/loader')(conf);
 
     /**
      * Copy assets into root
