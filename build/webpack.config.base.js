@@ -11,6 +11,6 @@ module.exports = {
         publicPath: "/",
     },
     mode: process.env.NODE_ENV || 'development',
-    devtool: 'source-map',
+    devtool: 'eval-cheap-module-source-map',
     stats: 'errors-only',
 }

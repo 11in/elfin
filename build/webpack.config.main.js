@@ -9,7 +9,7 @@ module.exports = {
     entry: {
         main: [
             path.join(__dirname, '..', 'assets', 'scripts', 'main.js'),
-            path.join(__dirname, '..', 'assets', 'styles', 'main.css'),
+            path.join(__dirname, '..', 'assets', 'styles', 'css.js'),
         ],
     },
     plugins: [
@@ -22,6 +22,9 @@ module.exports = {
         compress: true,
         port: 9000,
         watchContentBase: true,
+        hot: true,
+        publicPath: '/',
+        // stats: 'errors-only'
     },
     module: {
         rules: [
@@ -59,7 +62,7 @@ module.exports = {
                 },
             },
             {
-                test: /\.css$/i,
+                test: /\.?pcss$/i,
                 use: [
                     MiniCssExtractPlugin.loader,
                     {
