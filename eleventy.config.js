@@ -4,10 +4,6 @@
 require('dotenv').config()
 
 const includes = require('./11ty/loader');
-const rimraf = require('rimraf');
-const {
-    join
-} = require('path');
 
 module.exports = function (conf) {
 
@@ -45,18 +41,6 @@ module.exports = function (conf) {
      * Less noise since we're running this through another CLI
      */
     conf.setQuietMode(true);
-
-    /**
-     * Run some cleanup after a build is made.
-     */
-    conf.on('afterBuild', () => {
-        // Remove unneeded images.mjs files
-        rimraf(join(process.cwd(), 'dist', 'images.*.mjs?(.map)'), {}, err => {
-            if (err) {
-                console.error(err)
-            }
-        });
-    });
 
     return {
         dir: {
