@@ -18,8 +18,8 @@ module.exports = function (conf) {
      * Copy assets into root
      */
     conf.addPassthroughCopy({
-        "content/files": "/files/",
-        "content/_build": "/",
+        "site/files": "/files/",
+        "site/_build": "/",
     });
 
     /**
@@ -42,7 +42,7 @@ module.exports = function (conf) {
 
     return {
         dir: {
-            input: "content",
+            input: "site",
             output: "dist",
             includes: "_includes",
             layouts: "_layouts",

@@ -1,6 +1,6 @@
 {
   "name": "elfin",
-  "version": "1.9.0-alpha",
+  "version": "1.9.1-alpha",
   "description": "11ty starter package.",
   "homepage": "https://elfin.netlify.app",
   "main": "index.js",
@@ -19,7 +19,7 @@
     "content:serve": "npm run content:build -- --serve",
     "content:dev": "npm run content:watch -- --quiet",
     "content:debug": "DEBUG=Eleventy* content:build",
-    "assets:clean": "rimraf ./content/_build",
+    "assets:clean": "rimraf site/_build",
     "assets:build": "webpack",
     "assets:build:main": "webpack -c assets/build/webpack.config.main.js",
     "assets:build:legacy": "webpack -c assets/build/webpack.config.legacy.js",

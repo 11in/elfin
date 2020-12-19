@@ -15,7 +15,7 @@ module.exports = {
     cache: cache,
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, '..', '..', 'content', '_build'),
+        path: path.resolve(__dirname, '..', '..', 'site', '_build'),
         publicPath: "/",
     },
     mode: process.env.NODE_ENV || 'development',
