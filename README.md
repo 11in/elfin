@@ -4,7 +4,7 @@ An opinionated template for building a site based on [11ty](https://11ty.dev) an
 
 ## What Do I Get
 
-- Fast dev with Webpack dev server and hot module reloading
+- Fast dev with a simple local server (like every other framework)
 - Delivers modern JS to modern browsers, and shitty JS to shitty browsers
 - Tailwind! 2.0!
 - Minimizes and optimizes CSS and JS
