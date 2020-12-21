@@ -16,7 +16,7 @@ An opinionated template for building a site based on [11ty](https://11ty.dev) an
 
 - `npm run build` - Builds the entire site into the `dist` directory
 - `npm run deploy` - Run a production build (use this when deploying).
-- `npm run dev` - Builds, watches, and serves the site at https://localhost:900
+- `npm run dev` - Builds, watches, and serves the site at https://localhost:8080
 
 **WARNING**
 
