@@ -23,11 +23,6 @@ module.exports = function (conf) {
     });
 
     /**
-     * Customize the markdown renderer.
-     */
-    conf.setLibrary("md", require('./11ty/shared/markdown'))
-
-    /**
      * This is necessary so that we rebuild when assets are rebuilt.
      */
     conf.setUseGitIgnore(false);

@@ -1,3 +1,1 @@
-module.exports = conf => {
-    require('./markdown')(conf)
-}
+module.exports = conf => {}
