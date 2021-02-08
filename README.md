@@ -23,4 +23,4 @@ An opinionated template for building a site based on [11ty](https://11ty.dev) an
 > Because there are essentially two "builds" that happen here (11ty and Webpack) there is a bit of _file shuffling_ that goes on.
 > **If a directory or file is in `.gitignore` then it is probably part of that shuffling and you should leave it alone.** i.e. `content/_build/`, etc.
 
-For more information on how to use Elfin, visit the website: https://elfin.netlify.app
+For more information on how to use Elfin, visit the website: https://11in.alwaysblank.dev
