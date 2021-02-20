@@ -1,18 +1,32 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+const glob = require('glob');
+
+const projectRoot = path.resolve(__dirname, '..', '..');
+
+const tailwind = require(path.resolve(projectRoot, 'tailwind.config'));
+const templateFilePattern = tailwind.purge.content || tailwind.purge;
+const templateFiles = templateFilePattern
+    .map(rule => glob.sync(rule))
+    .flat()
+    .map(file => path.resolve(file));
+
+const buildDependencies = {
+    config: [
+        // This will include all webpack files as well as assets
+        path.resolve(projectRoot, 'assets') + '/',
+        // This pulls in template files that are used by Tailwind when purging
+        ...templateFiles,
+    ],
+};
 
 const isProd = process.env.NODE_ENV === 'production';
 const cache = isProd
     ? {
         type: 'filesystem',
-        cacheDirectory: path.resolve(__dirname, '..', '..', '.webpack'),
-        buildDependencies: {
-            config: [
-                __filename,
-                path.resolve(__dirname, '..', '..', 'assets') + '/',
-            ]
-        },
+        cacheDirectory: path.resolve(projectRoot, '.webpack'),
+        buildDependencies,
     }
     : true; // in-memory caching
 

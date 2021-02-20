@@ -1,6 +1,6 @@
 {
   "name": "elfin",
-  "version": "1.9.2-alpha",
+  "version": "1.9.3-alpha",
   "description": "11ty starter package.",
   "homepage": "https://elfin.netlify.app",
   "main": "index.js",
@@ -62,6 +62,7 @@
     "rimraf": "^3.0.2",
     "tailwindcss": "^2",
     "webpack": "^5",
-    "webpack-cli": "^4"
+    "webpack-cli": "^4",
+    "glob": "^7.1.6"
   }
 }
