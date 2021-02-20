@@ -3,11 +3,16 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 const isProd = process.env.NODE_ENV === 'production';
-
 const cache = isProd
     ? {
         type: 'filesystem',
-        cacheDirectory: path.resolve(__dirname, '..', '..', '.webpack')
+        cacheDirectory: path.resolve(__dirname, '..', '..', '.webpack'),
+        buildDependencies: {
+            config: [
+                __filename,
+                path.resolve(__dirname, '..', '..', 'assets') + '/',
+            ]
+        },
     }
     : true; // in-memory caching
 
