@@ -7,8 +7,8 @@ module.exports = {
     name: 'main',
     entry: {
         main: [
-            path.join(__dirname, '..', '..', 'assets', 'scripts', 'main.js'),
-            path.join(__dirname, '..', '..', 'assets', 'styles', 'css.js'),
+            path.join(__dirname, '..', '..', 'assets', 'scripts', 'app.js'),
+            path.join(__dirname, '..', '..', 'assets', 'styles', 'app.pcss'),
         ],
     },
     module: {

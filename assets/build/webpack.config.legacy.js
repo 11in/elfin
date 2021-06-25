@@ -7,7 +7,7 @@ module.exports = {
     name: 'legacy',
     entry: {
         legacy: [
-            path.join(__dirname, '..', '..', 'assets', 'scripts', 'main.js'),
+            path.join(__dirname, '..', '..', 'assets', 'scripts', 'app.js'),
         ],
     },
     module: {
